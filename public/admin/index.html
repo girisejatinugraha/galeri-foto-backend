@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery Admin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Form -->
+    <div id="loginForm" class="auth-container">
+        <h2 style="text-align: center; margin-bottom: 30px; color: #333;">Admin Login</h2>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Enter username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter password">
+        </div>
+        <button onclick="login()" class="btn" style="width: 100%;">Login</button>
+        <div id="loginError" style="margin-top: 15px;"></div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="adminPanel" class="admin-panel container">
+        <div class="header">
+            <h1>Photo Gallery Admin</h1>
+            <button onclick="logout()" class="btn">Logout</button>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Loading...</p>
+        </div>
+
+        <div id="alerts"></div>
+
+        <!-- Upload Section -->
+        <div class="upload-section">
+            <h3 style="margin-bottom: 20px; color: #333;">Upload New Photo</h3>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" placeholder="Enter photo description..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Photo File</label>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="photo" name="photo" accept="image/*" required>
+                        <label for="photo" class="file-input-label">
+                            <div>📷 Click to select photo</div>
+                            <small style="color: #666;">Max size: 10MB | JPG, PNG, GIF</small>
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="btn">Upload Photo</button>
+            </form>
+        </div>
+
+        <!-- Photos Grid -->
+        <div id="photosContainer">
+            <h3 style="color: white; margin-bottom: 20px;">Manage Photos</h3>
+            <div id="photosGrid" class="photos-grid"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
